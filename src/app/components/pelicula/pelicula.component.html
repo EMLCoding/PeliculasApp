@@ -1,0 +1,22 @@
+<div class="card bg-dark text-white">
+    <img src="http://image.tmdb.org/t/p/w500{{pelicula.backdrop_path}}" class="card-img" alt="...">
+    <div class="card-img-overlay row no-gutters" style="align-content: center;">
+        <div class="col-md-4" style="max-width:300px">
+            <img src="http://image.tmdb.org/t/p/w300{{pelicula.poster_path}}" class="card-img" alt="...">
+            <button type="button" class="btn btn-outline-danger mt-5" (click)="volverAtras()">Regresar</button>
+        </div>
+        <div id="datos" class="col-md-16" style="margin-left:5%">
+            <div id="titulo">
+                <h3 class="card-title">{{pelicula.title}}</h3>
+            </div>
+            <div id="info">
+                <p class="card-text">{{pelicula.overview}}</p>
+            </div>
+            <div id="generos" style="position:bottom">
+                <span class="badge badge-primary ml-2" *ngFor="let generos of pelicula.genres">{{generos.name}}</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,9 @@
+#datos {
+    max-width: 300px;
+    align-content: center
+}
+
+#generos {
+    position: absolute;
+    bottom: 100px;
+}

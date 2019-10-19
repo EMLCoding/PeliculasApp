@@ -1,0 +1,34 @@
+<div class="container m-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Buscar:</label>
+                <input class="form-control" [(ngModel)]="buscar" name="buscar" (keyup.enter)="buscarPelicula()" type="text" placeholder="Buscar película">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container d-flex align-items-center" *ngIf=cargando>
+    <strong>Loading...</strong>
+    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+</div>
+
+
+<div class="container m-5" *ngIf="cargando===false">
+    <h2>Películas Encontradas</h2>
+    <div class="card-columns">
+        <div class="card" *ngFor="let pelicula of peliculasEncontradas">
+            <img src="http://image.tmdb.org/t/p/w300{{pelicula.poster_path}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{pelicula.title}}</h5>
+                <p class="card-text">{{pelicula.overview}}</p>
+                <button type="button" class="btn btn-outline-dark" (click)="verPelicula(pelicula)">Ver +</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container m-5 alert alert-danger" role="alert" *ngIf="hayDatos === false">
+    No se ha encontrado ningún resultado
+</div>

@@ -1,0 +1,36 @@
+<div class="container m-5">
+    <h2>Películas de Estreno</h2>
+    <div class="bd-example">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item {{ i == 0 ? 'active' : '' }} " *ngFor="let estreno of listadoEstrenos;let i =index;">
+                    <img src="http://image.tmdb.org/t/p/w500{{estreno.backdrop_path}}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{estreno.title}}</h5>
+                        <p>{{estreno.overview}}</p>
+                        <button type="button" class="btn btn-outline-info" (click)="verPelicula(estreno)">Ver +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container m-5">
+    <h2>Películas Populares</h2>
+    <div class="card-columns">
+        <div class="card" *ngFor="let pelicula of listadoPopulares">
+            <img src="http://image.tmdb.org/t/p/w300{{pelicula.poster_path}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{pelicula.title}}</h5>
+                <p class="card-text">{{pelicula.overview}}</p>
+                <button type="button" class="btn btn-outline-dark" (click)="verPelicula(pelicula)">Ver +</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<button (click)="verEstrenos()">Ver resultado</button>
